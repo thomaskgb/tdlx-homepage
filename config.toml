@@ -38,7 +38,7 @@ enableEmoji = true
     weight = 30
 
 [params]
-  sitename = "Awesome hugo blog"
+  sitename = "Awesome TDLX blog"
   defaultColor = "dark" # set default color mode: dark or light
   description = "Minimal Hugo blog theme with light and dark mode support"
 
