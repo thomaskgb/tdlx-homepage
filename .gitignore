@@ -1,2 +1,17 @@
-public/*
+# Miscellaneous files
+*.log
+*.swo
+*.swp
+*.lock
+*.bak
+*.tmp
 
+
+# Generated files from build process
+public/*
+resources/_gen/*
+
+# Private keys or secret files
+*.pem
+*.key
+*.env
