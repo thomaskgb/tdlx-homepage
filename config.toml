@@ -1,7 +1,6 @@
 title = "TDLX"
 baseURL = 'https://tdlx.nl/'
 languageCode = 'en-us'
-theme = "hugo-blog-awesome"
 
 # To enable Google Analytics 4 (gtag.js) provide G-MEASUREMENT_ID below.
 # To disable  Google Analytics, simply leave the field empty or remove the next line
@@ -29,6 +28,11 @@ enableEmoji = true
     name = 'About'
     url = '/about/'
     weight = 30
+  [[menu.main]]
+    pageRef="experience"
+    name = 'Experience'
+    url = '/experience/'
+    weight = 30
 
 [params]
   sitename = "TDLX"
@@ -36,10 +40,11 @@ enableEmoji = true
   description = "TDLX homepage"
 
 [params.author]
-  avatar = "avatar.jpg" # put the file in assets folder; also ensure that image has same height and width
+  avatar = "avatar.jpg"
   intro = "TDLX's homepage"
-  name = "Thomas D"
-  description = "This is the homepage of TDLX a IT consultancy company"
+  name = "Thomas"
+  footer = "TDLX B.V. - Engineering Consultancy - BTW: NL861226136B01"
+  description = "Hi I am Thomas 33 years old and I am glad you have found my personal website.\n Here you will find a little information about my background and experience and some of the thoughts and project that have been keeping me busy. Please reach out if you have any questions"
   goToTop = true
 
 
