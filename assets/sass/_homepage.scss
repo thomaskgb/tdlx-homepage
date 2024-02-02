@@ -1,0 +1,47 @@
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #F5F5F5;
+    margin-top: 100px;
+}
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #F5F5F5;
+    margin-bottom: 20px; /* Added margin for spacing */
+}
+
+
+#animated-link {
+    padding: 5px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    text-decoration: none;
+    color: rgb(234, 234, 234); /* Updated color to match general text */
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: monospace; /* Ensures consistent character width */
+}
+
+#animated-link:hover {
+    color: rgb(136, 138, 143); /* Updated hover color to match footer */
+    border-color: rgb(136, 138, 143); /* Updated border color on hover */
+}
+
+.blinking-cursor {
+    animation: blink-animation 1s step-start 0s infinite;
+    color: rgb(234, 234, 234); /* Updated cursor color */
+}
+
+#animated-link:hover .blinking-cursor {
+    color: rgb(136, 138, 143); /* Updated cursor color on hover */
+}
+
+@keyframes blink-animation {
+    50% { opacity: 0; }
+}
