@@ -3,10 +3,12 @@ title: Experience
 description: 'TDLX is a consulting company founded in 2019 which helps companies with their complex IT projects'
 date: '2023-04-19'
 author: Thomas Delvaulx
+layout: experience
 ---
 
 tech enthousiast | optimiser | engineer 
-\>_whoami: A motivated engineer, interested in the latest technologies and how software can help businesses grow.
+
+> \>_whoami: A motivated engineer, interested in the latest technologies and how software can help businesses grow.
 Other passions of mine are solar cars, drones and renewable energy.
 
  
