@@ -37,7 +37,7 @@
         </main> -->
     </div>
     <div class="posts-container">
-        {{ range first 3 .Site.RegularPages.ByDate.Reverse }}
+        {{ range first 3 (where .Site.RegularPages "Section" "in" (slice "posts" "projects")).ByDate.Reverse }}
             <a href="{{ .Permalink }}" class="post-card">
                 <h3>{{ .Title }}</h3>
                 <p>{{ .Summary }}</p>

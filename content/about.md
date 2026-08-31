@@ -1,37 +1,39 @@
 ---
 title: About Me
-description: 'TDLX is a consulting company founded in 2019 which helps companies with their complex IT projects'
-date: '2023-04-19'
+description: 'Thomas Delvaulx, engineer and product lead working at the intersection of energy, hardware and software'
+date: '2026-08-31'
 author: Thomas Delvaulx
 ---
 
 ## Who am I?
-I am 33 years old, currently living in Amsterdam. I moved here almost seven years ago with my wife Magali. The plan was to stay for one year, but we really love it here. When I am not working I am always busy learning something new, reading or travelling somewhere hot or cold... I have a real passion for engineering, more specifically software & technology. A few years ago I started automating my house and now I am working on various software projects in my spare time.
+I live in Bierbeek, near Leuven in Belgium, with my wife Magali and our little one. After seven great years in Amsterdam we moved back and are now renovating our home ourselves. I have a real passion for engineering, more specifically software & technology. What started years ago with automating my house has grown into a small ecosystem of hardware and software projects that I build, run and maintain in my spare time. You can find the highlights on the [projects](/projects/) page.
 
 ## What have I been up to?
-Professionally I have been making a shift from my mechanical engineering background to a more software focussed specialization. I started as an engineer working on the construction of big solar installations. I learned a lot about the mechanical and electrical aspects of these installations but more importantly, how to effectively manage these projects operationally. The main reason I changed specialization was because I noticed I kept moving to the automation of tasks and using software to do so. After having helped Ecorus grow from the first employee to 100 people I got the opportunity to start a spinoff, Eleena. With my team we helped social housing tenants & corporations better understand the production of their solar installations.
-I strongly believe that technology can help a lot of people when implemented right, constantly making small incremental improvements and focussing on the whole picture.
-At Blink the international character and multi­disciplinary software teams fascinated me. In a high paced environment we were able to deploy software that was used in an international and fast changing context.
+Professionally I made the shift from a mechanical engineering background to software and product. I started as an engineer on the construction of large solar installations, where I learned the mechanical and electrical side of the trade but above all how to manage projects operationally. I kept gravitating towards automating tasks with software, so I made that my specialization. After helping Ecorus grow from the first employee to a company of 100, I got the opportunity to start a spinoff, Eleena, where my team helped social housing tenants & corporations understand the production of their solar installations. At Blink I worked in international, multidisciplinary software teams rolling out an EV charging network across the EU.
 
-## What I look forward to?
-I am looking for a project where I will be cognitively challenged and work with people who understand the necessity of technologies in current businesses. I want to work for a company where knowledge sharing is highly praised, multidisciplinary teams work closely together and value is added efficiently to the company through technology.
+Since then I work independently through my company TDLX, taking on missions at the intersection of connected energy hardware, software and commercial strategy: e-mobility and Vehicle-to-Grid innovation at Elia, the Belgian transmission system operator, product advisory at Jetpack.AI, and currently product management at Sitemark, an AI-powered inspection platform for solar assets. Next to the missions I am building [Energy Pebble](/projects/energy-pebble/), a small hardware product of my own.
 
+I strongly believe technology can help a lot of people when implemented right: constantly making small incremental improvements while keeping the whole picture in focus.
+
+## What do I look forward to?
+I look for bounded, well-scoped missions where I can sit between the technology and the people, translating one into the other. Ideally the work touches real hardware, energy or infrastructure, not only dashboards about it, and is done with a team that has the mandate and drive to ship. Product ownership, technical leadership or a mix of both.
 
 ## What can you expect from me?
-I'm always highly motivated and engaged in what I do. I will bring clarity and vision, I like it when things go quickly and efficiently. I am always available for my team and love to challenge & help people with their own projects.
-I take pride in everything I have learned so far and still learn everyday. When sharing my thoughts I make sure to first know what I am talking about.
+I'm always highly motivated and engaged in what I do. I bring clarity and vision, and I like it when things move quickly and efficiently. I am always available for my team and love to challenge & help people with their own projects. When sharing my thoughts I make sure to first know what I am talking about.
 But I think it's best to figure this last part out during a personal introduction ...
 
 ---
 ## Technology
-- Deployment: docker, kuberenetes, ansible
-- Front-end: flutter, hugo, javascript, html, css
-- Databases: PostgresQL, OpenA
-- Back-end: python, fastapi, flask
+- Back-end: python, FastAPI, pytest
+- IoT & home automation: ESPHome, Home Assistant, MQTT, Zigbee, eBUS
+- Deployment & infra: docker, Traefik, ansible, GitHub Actions, WireGuard
+- Data: PostgreSQL, InfluxDB, Grafana
+- AI: Claude Code & agent workflows, self-hosted LLMs (Ollama)
+- Front-end: hugo, javascript, html, css, flutter
 - Other: bash, git, unix, markdown
 
 
---- 
+---
 ## Education
 - Noordzee drones: Class A Pilot
 - KU Leuven: Post graduate mechanical engineering

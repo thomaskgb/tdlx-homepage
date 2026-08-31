@@ -1,0 +1,28 @@
+{{- define "main" -}}
+<div class="wrapper list-page">
+    <header class="header">
+        <h1 class="header-title center">{{ .Title }}</h1>
+    </header>
+    <main class="page-content" aria-label="Content">
+        {{ with .Params.description }}
+        <p class="center">{{ . }}</p>
+        {{ end }}
+
+        {{ range .Pages.ByWeight }}
+        <article class="project-card">
+            <h3 class="project-title">
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            </h3>
+            <p class="project-summary">{{ .Params.summary }}</p>
+            {{ with .Params.tech }}
+            <ul class="project-tags">
+                {{ range . }}
+                <li>{{ . }}</li>
+                {{ end }}
+            </ul>
+            {{ end }}
+        </article>
+        {{ end }}
+    </main>
+</div>
+{{- end -}}
