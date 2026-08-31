@@ -58,6 +58,7 @@ body {
   font-feature-settings: "kern" 1;
   font-kerning: normal;
   box-sizing: border-box;
+  overflow-wrap: break-word;
 }
 
 // Set `margin-bottom` to maintain vertical rhythm
