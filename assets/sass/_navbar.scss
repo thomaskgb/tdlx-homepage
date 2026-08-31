@@ -1,6 +1,9 @@
 // Navbar
 .navbar {
     height: auto;
+    // body is a flex column; without an explicit width the auto side margins
+    // make the navbar shrink to its content instead of filling to max-width
+    width: 100%;
     max-width: calc(#{$wide-size} - (#{$spacing-full} * 2));
     max-width: -webkit-calc(#{$wide-size} - (#{$spacing-full} * 2));
     position: relative;

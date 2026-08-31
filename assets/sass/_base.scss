@@ -43,6 +43,8 @@ figure {
 // Basic styling
 body {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
   position: relative;
   color: $text-base-color;
@@ -230,8 +232,11 @@ blockquote {
 
 // Wrapper
 .wrapper {
-  max-width: -webkit-calc(#{$narrow-size} - (#{$spacing-full} * 2));
-  max-width: calc(#{$narrow-size} - (#{$spacing-full} * 2));
+  // body is a flex column; without an explicit width the auto side margins
+  // make the wrapper shrink to its content instead of filling to max-width
+  width: 100%;
+  box-sizing: border-box;
+  max-width: $narrow-size;
   position: relative;
   margin-right: auto;
   margin-left: auto;
