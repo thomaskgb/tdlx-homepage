@@ -3,6 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title itemprop="name">{{ .Title }} | {{ .Site.Title }}</title>
+<meta name="twitter:card" content="summary" />
 <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}" />
 <meta name="twitter:title" content="{{ .Title }} | {{ .Site.Title }}" />
 <meta itemprop="name" content="{{ .Title }} | {{ .Site.Title }}" />
@@ -25,20 +26,32 @@
 <meta property="og:description" content="{{ $description }}" />
 <meta name="twitter:description" content="{{ $description }}" />
 
-<meta property="og:locale" content="{{ .Site.LanguageCode }}" />
-<meta name="language" content="{{ .Site.LanguageCode }}" />
+{{- /* og:locale wants en_US; languageCode is en-us */ -}}
+{{- $locale := .Site.Language.LanguageCode -}}
+{{- $parts := split $locale "-" -}}
+{{- if eq (len $parts) 2 }}{{ $locale = printf "%s_%s" (index $parts 0) (upper (index $parts 1)) }}{{ end }}
+<meta property="og:locale" content="{{ $locale }}" />
+<meta name="language" content="{{ .Site.Language.LanguageCode }}" />
 {{ range .AllTranslations }}
-  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.LanguageName }}" />
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}" title="{{ .Language.Label }}" />
 {{ end }}
 
-{{ with .Params.image }}
-  <meta itemprop="image" content="{{ . | absURL }}" />
-  <meta property="og:image" content="{{ . | absURL }}" />
-  <meta name="twitter:image" content="{{ . | absURL }}" />
-  <meta name="twitter:image:src" content="{{ . | absURL }}" />
-{{ else }}
-  <meta itemprop="image" content="{{ .Site.Params.ogimage | absURL }}" />
-  <meta property="og:image" content="{{ .Site.Params.ogimage | absURL }}" />
-  <meta name="twitter:image" content="{{ .Site.Params.ogimage | absURL }}" />
-  <meta name="twitter:image:src" content="{{ .Site.Params.ogimage | absURL }}" />
+{{- /* Social preview image: page image if set, else configured ogimage, else the avatar */ -}}
+{{- $ogimg := "" -}}
+{{- with .Params.image -}}
+  {{- $ogimg = . | absURL -}}
+{{- else -}}
+  {{- with .Site.Params.ogimage -}}
+    {{- $ogimg = . | absURL -}}
+  {{- else -}}
+    {{- with resources.Get $.Site.Params.author.avatar -}}
+      {{- $ogimg = (.Fill "512x512 q90").Permalink -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{ with $ogimg }}
+  <meta itemprop="image" content="{{ . }}" />
+  <meta property="og:image" content="{{ . }}" />
+  <meta name="twitter:image" content="{{ . }}" />
+  <meta name="twitter:image:src" content="{{ . }}" />
 {{ end }}
