@@ -33,6 +33,6 @@ jobs:
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
     - name: Deploy with rsync
-      run: rsync -avz --delete $GITHUB_WORKSPACE/public/ ${{ secrets.DO_USERNAME }}@${{ secrets.DO_HOST }}:/var/www/html/public
+      run: rsync -avz --delete $GITHUB_WORKSPACE/public/ ${{ secrets.DO_USERNAME }}@${{ secrets.DO_HOST }}:/home/cumulus/github/cumulus/tdlx-site/tdlx_homepage/
 
 
