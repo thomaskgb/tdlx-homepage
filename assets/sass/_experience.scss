@@ -1,22 +1,25 @@
+// Experience page: inherits the site's base colors and fonts,
+// only adds structure (section rules and entry spacing).
 .experience-page {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  padding: 20px;
-  color: #ffffff;
-}
+  h2 {
+    border-bottom: 1px solid $light;
+    padding-bottom: 0.3em;
+    margin-top: 2.2em;
+    margin-bottom: 0.6em;
+  }
 
-.experience-page h2 {
-  border-bottom: 2px solid #666;
-  margin-bottom: 30px;
-  padding-bottom: 0.3em;
-}
+  h3 {
+    margin-top: 1.6em;
+    margin-bottom: 0.2em;
+  }
 
-.experience-page h3 {
-  color: #333;
-  margin-top: 1em;
-}
-
-.experience-page p {
-  margin-bottom: 1em;
+  // intro line ("tech enthusiast | optimiser | engineer")
+  > p:first-child {
+    color: $gray;
+    font-size: $small-font-size;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: center;
+    margin-bottom: 2em;
+  }
 }

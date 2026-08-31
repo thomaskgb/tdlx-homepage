@@ -12,40 +12,27 @@
 
 {{- partial "head.html" . -}}
 
-
-
 <body data-theme="{{ $defaultColor }}" class="notransition">
     {{- partial "scriptsBodyStart.html" . -}}
     {{- partial "header.html" . -}}
     <div class="wrapper">
         {{ partial "bio" . }}
-        <!-- <main aria-label="Content">
-            <h3 class="posts-item-note" aria-label="Recent Posts">{{ T "home.recent_posts" }}</h3>
-            {{/* Show last 5 posts in reverse date order */}}
-            {{ $pagesToShow := where .Site.RegularPages "Type" "in" site.Params.mainSections }}
-            {{ $posts := $pagesToShow.ByDate.Reverse }}
-            {{ range first 5 $posts }}
-            {{ partial "postCard" . }}
-            {{ end }}
-            {{ if gt (len $posts) 5 }}
-            <p>
-                {{ range $firstSection := (where .Site.Sections "Section" "in" (first 1 (.Site.Params.mainSections))) }}
-                <a href="{{ $firstSection.Permalink }}">{{ T "home.see_all_posts" }}</a>
+    </div>
+    <main aria-label="Content">
+        <section class="home-cards" aria-label="Latest posts and projects">
+            <h2 class="home-cards-title">Latest</h2>
+            <div class="home-cards-grid">
+                {{ range first 3 (where .Site.RegularPages "Section" "in" (slice "posts" "projects")).ByDate.Reverse }}
+                <a href="{{ .RelPermalink }}" class="post-card">
+                    <h3 class="post-card-title">{{ .Title }}</h3>
+                    <p class="post-card-summary">{{ .Summary }}</p>
+                    <time class="post-card-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
+                </a>
                 {{ end }}
-            </p>
-            {{ end }}
-        </main> -->
-    </div>
-    <div class="posts-container">
-        {{ range first 3 (where .Site.RegularPages "Section" "in" (slice "posts" "projects")).ByDate.Reverse }}
-            <a href="{{ .Permalink }}" class="post-card">
-                <h3>{{ .Title }}</h3>
-                <p>{{ .Summary }}</p>
-                <p>{{ .Date.Format "January 2, 2006" }}</p>
-            </a>
-        {{ end }}
-    </div>
-    
+            </div>
+        </section>
+    </main>
+
     {{- partial "footer.html" . -}}
     {{- partial "scriptsBodyEnd.html" . -}}
 </body>

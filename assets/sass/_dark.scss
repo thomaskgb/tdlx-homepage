@@ -180,7 +180,7 @@
     }
 
     .post-item-date {
-      color: $dark-white;
+      color: $dark-gray;
     }
 
     .post-item-title {
@@ -188,10 +188,56 @@
         color: $dark-text-base-color;
 
         &:hover,
-        &focus {
-          color: $dark-white;
+        &:focus {
+          color: $dark-text-link-blue;
         }
       }
+    }
+  }
+
+  // Homepage cards
+  .home-cards {
+    .home-cards-title {
+      color: $dark-gray;
+    }
+
+    .post-card {
+      .post-card-date {
+        color: $dark-gray;
+      }
+
+      &:hover,
+      &:focus {
+        .post-card-title {
+          color: $dark-text-link-blue;
+        }
+      }
+    }
+  }
+
+  // Experience page
+  .experience-page {
+    h2 {
+      border-color: $dark-light;
+    }
+
+    > p:first-child {
+      color: $dark-gray;
+    }
+  }
+
+  // List page description
+  p.page-description {
+    color: $dark-gray;
+  }
+
+  // Projects list
+  .project-card .project-title a {
+    color: inherit;
+
+    &:hover,
+    &:focus {
+      color: $dark-text-link-blue;
     }
   }
 
@@ -228,17 +274,17 @@
 
   // Footer
   .footer {
-    span.footer_item {
-      color: $dark-white;
-    }
-
-    a.footer_item:not(:last-child) {
-      color: $dark-white;
-    }
-
     .footer_copyright {
       color: $dark-gray;
       opacity: 1;
+    }
+
+    .footer_social-icons svg {
+      color: $dark-gray;
+
+      &:hover {
+        color: $dark-white;
+      }
     }
   }
 

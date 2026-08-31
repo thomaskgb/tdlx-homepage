@@ -7,18 +7,38 @@
   margin: 1.2em auto;
 }
 
+// Centered muted intro line under a list page title
+p.page-description {
+  text-align: center;
+  color: $gray;
+  max-width: 460px;
+  margin: 0 auto 2rem;
+}
+
 // Projects list
 .project-card {
-  border: 1px solid rgba(128, 128, 128, 0.35);
-  border-radius: 5px;
-  padding: 18px 20px;
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 8px;
+  padding: 18px 22px;
   margin: 18px 0;
+  transition: border-color 150ms ease-in;
+
+  &:hover {
+    border-color: rgba(128, 128, 128, 0.6);
+  }
 
   .project-title {
     margin: 0 0 6px;
+    font-size: 1.05em;
 
     a {
       text-decoration: none;
+      color: inherit;
+
+      &:hover,
+      &:focus {
+        color: $text-link-blue;
+      }
     }
   }
 

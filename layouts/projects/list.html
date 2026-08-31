@@ -5,7 +5,7 @@
     </header>
     <main class="page-content" aria-label="Content">
         {{ with .Params.description }}
-        <p class="center">{{ . }}</p>
+        <p class="page-description">{{ . }}</p>
         {{ end }}
 
         {{ range .Pages.ByWeight }}
