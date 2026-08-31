@@ -1,0 +1,7 @@
+DirectoryPath: public
+# External links are checked nowhere: they make CI flaky and can rot independently of a PR
+CheckExternal: false
+IgnoreAltMissing: true
+# The theme's scroll-to-top button is an href="#" link on every page
+IgnoreInternalEmptyHash: true
+IgnoreDirectoryMissingTrailingSlash: true

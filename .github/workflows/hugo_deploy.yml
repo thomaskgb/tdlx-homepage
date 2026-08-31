@@ -5,34 +5,41 @@ on:
     branches:
       - main
 
+# One deploy at a time; a newer push waits for the running deploy to finish
+# (never cancelled mid-rsync), and supersedes any older queued run.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+env:
+  # Keep in sync with ci.yml
+  HUGO_VERSION: '0.165.0'
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        submodules: true  # Fetch Hugo themes (true OR recursive)
-        fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
 
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2
-      with:
-        hugo-version: 'latest'
-        extended: true
+      - name: Build
+        run: hugo --minify
 
-    - name: Build
-      run: hugo --minify
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.DO_SSH_KEY }}
+          known_hosts: ${{ secrets.KNOWN_HOSTS }}
 
-    - name: Install SSH Key
-      uses: shimataro/ssh-key-action@v2
-      with:
-        key: ${{ secrets.DO_SSH_KEY }}
-        known_hosts: ${{ secrets.KNOWN_HOSTS }}
-
-    - name: Deploy with rsync
-      run: rsync -avz --delete $GITHUB_WORKSPACE/public/ ${{ secrets.DO_USERNAME }}@${{ secrets.DO_HOST }}:/home/cumulus/github/cumulus/tdlx-site/tdlx_homepage/
-
-
+      - name: Deploy with rsync
+        run: rsync -avz --delete $GITHUB_WORKSPACE/public/ ${{ secrets.DO_USERNAME }}@${{ secrets.DO_HOST }}:/home/cumulus/github/cumulus/tdlx-site/tdlx_homepage/
