@@ -4,6 +4,7 @@
     // body is a flex column; without an explicit width the auto side margins
     // make the navbar shrink to its content instead of filling to max-width
     width: 100%;
+    box-sizing: border-box;
     max-width: calc(#{$wide-size} - (#{$spacing-full} * 2));
     max-width: -webkit-calc(#{$wide-size} - (#{$spacing-full} * 2));
     position: relative;
@@ -156,14 +157,23 @@
         top: 12px;
       }
 
+      a#animated-link {
+        padding: 10px 14px;
+      }
+
       .menu-icon {
         display: block;
         position: absolute;
         right: 0;
-        margin: .7rem .3rem 0 0;
+        top: 0;
+        margin: 0;
+        padding: 12px 14px;
         cursor: pointer;
         text-align: center;
         z-index: 1;
+        > svg {
+          display: block;
+        }
         > svg {
           opacity: 0.7;
         }
@@ -192,6 +202,8 @@
         height: 100vh;
         width: 100%;
         top: 0;
+        left: 0;
+        background-color: $white;
       }
 
       .menu-link {
@@ -201,7 +213,7 @@
 
         &:not(:last-child) {
           margin: 0;
-          padding: 2px 0;
+          padding: 10px 0;
         }
       }
     }
