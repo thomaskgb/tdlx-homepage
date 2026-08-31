@@ -80,8 +80,11 @@
 }
 
 // Homepage cards (latest posts & projects)
+// Same max-width as .navbar so the grid lines up with the header above it
 .home-cards {
-  max-width: 960px;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: $wide-size;
   margin: 0 auto;
   padding: 0 $spacing-full;
 
