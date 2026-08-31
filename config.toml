@@ -19,24 +19,19 @@ enableEmoji = true
 
 [menu]
   [[menu.main]]
+    pageRef="experience"
+    name = 'Experience'
+    url = '/experience/'
+    weight = 10
+  [[menu.main]]
     pageRef="projects"
     name = 'Projects'
     url = '/projects/'
-    weight = 10
-  [[menu.main]]
-    pageRef="posts"
-    name = 'Posts'
-    url = '/posts/'
     weight = 20
   [[menu.main]]
     pageRef="about"
     name = 'About'
     url = '/about/'
-    weight = 30
-  [[menu.main]]
-    pageRef="experience"
-    name = 'Experience'
-    url = '/experience/'
     weight = 30
 
 [params]
@@ -48,7 +43,7 @@ enableEmoji = true
   avatar = "avatar.jpg"
   intro = "TDLX's homepage"
   name = "Thomas"
-  footer = "TDLX B.V. - Engineering Consultancy - BTW: NL861226136B01"
+  footer = "TDLX Enterprise BV - Engineering Consultancy - BTW: BE 1010.144.439"
   description = "Hi, I am Thomas and I am glad you have found my personal website.\n Here you will find a little information about my background and experience, and some of the projects that keep me busy, both on professional missions and at home. Please reach out if you have any questions"
   goToTop = true
 

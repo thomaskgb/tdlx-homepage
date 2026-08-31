@@ -20,12 +20,16 @@
     border: 2px solid transparent;
     border-radius: 8px;
     text-decoration: none;
-    color: rgb(234, 234, 234); /* Updated color to match general text */
+    color: rgb(24, 26, 27); /* dark text for light mode */
     transition: all 0.3s ease;
     display: inline-block;
     text-align: center;
     box-sizing: border-box;
     font-family: monospace; /* Ensures consistent character width */
+}
+
+html.dark #animated-link {
+    color: rgb(234, 234, 234);
 }
 
 #animated-link:hover {
@@ -35,7 +39,11 @@
 
 .blinking-cursor {
     animation: blink-animation 1s step-start 0s infinite;
-    color: rgb(234, 234, 234); /* Updated cursor color */
+    color: rgb(24, 26, 27); /* dark cursor for light mode */
+}
+
+html.dark .blinking-cursor {
+    color: rgb(234, 234, 234);
 }
 
 #animated-link:hover .blinking-cursor {
