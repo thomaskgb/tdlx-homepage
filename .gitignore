@@ -15,3 +15,5 @@ resources/_gen/*
 *.pem
 *.key
 *.env
+# htmltest cache
+tmp/
