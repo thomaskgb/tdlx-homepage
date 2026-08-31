@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  pull_request:
+
+# Newer pushes to the same PR cancel the in-flight build
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Keep in sync with hugo_deploy.yml
+  HUGO_VERSION: '0.165.0'
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
+
+      - name: Build
+        run: hugo --minify --printPathWarnings
+
+      - name: Check internal links and HTML
+        uses: wjdp/htmltest-action@master
+        with:
+          config: .htmltest.yml
