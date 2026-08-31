@@ -29,6 +29,11 @@ enableEmoji = true
     url = '/projects/'
     weight = 20
   [[menu.main]]
+    pageRef="posts"
+    name = 'Posts'
+    url = '/posts/'
+    weight = 25
+  [[menu.main]]
     pageRef="about"
     name = 'About'
     url = '/about/'
@@ -37,11 +42,11 @@ enableEmoji = true
 [params]
   sitename = "TDLX"
   defaultColor = "dark" # set default color mode: dark or light
-  description = "TDLX homepage"
+  description = "Thomas Delvaulx, engineer and product lead working at the intersection of energy, hardware and software"
 
 [params.author]
   avatar = "avatar.jpg"
-  intro = "TDLX's homepage"
+  intro = "Building at the edge of energy & technology"
   name = "Thomas"
   footer = "TDLX Enterprise BV - Engineering Consultancy - BTW: BE 1010.144.439"
   description = "Hi, I am Thomas and I am glad you have found my personal website.\n Here you will find a little information about my background and experience, and some of the projects that keep me busy, both on professional missions and at home. Please reach out if you have any questions"

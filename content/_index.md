@@ -1,7 +1,4 @@
 ---
 title: "Home"
-author : "Hugo Authors"
+author: "Thomas Delvaulx"
 ---
-This is my first hugo page
-
-

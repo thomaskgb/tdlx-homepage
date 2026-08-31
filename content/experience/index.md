@@ -6,7 +6,7 @@ author: Thomas Delvaulx
 layout: experience
 ---
 
-tech enthousiast | optimiser | engineer
+tech enthusiast | optimiser | engineer
 
 > \>_whoami: Building products at the edge of energy & technology. An engineer and product lead who sits between the technology and the people, translating one into the other. Missions rotate, the container stays.
 

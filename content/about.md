@@ -36,5 +36,5 @@ But I think it's best to figure this last part out during a personal introductio
 ---
 ## Education
 - Noordzee drones: Class A Pilot
-- KU Leuven: Post graduate mechanical engineering
-- KU Leuven
+- KU Leuven: Postgraduate mechanical engineering
+- KU Leuven: Master of Engineering
