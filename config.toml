@@ -43,6 +43,7 @@ enableEmoji = true
   sitename = "TDLX"
   defaultColor = "dark" # set default color mode: dark or light
   description = "Thomas Delvaulx, engineer and product lead working at the intersection of energy, hardware and software"
+  ogimage = "images/avatar.jpg"
 
 [params.author]
   avatar = "avatar.jpg"
@@ -60,3 +61,7 @@ url = "https://github.com/thomaskgb"
 [[params.socialIcons]]
 name = "linkedin"
 url = "https://www.linkedin.com/in/tdelvaulx/"
+
+[[params.socialIcons]]
+name = "email"
+url = "mailto:missions@tdlx.nl"
