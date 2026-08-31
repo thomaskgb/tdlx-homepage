@@ -1,27 +1,38 @@
 ---
 name: open-pr
-description: Open or update a pull request for this repo. Use whenever work is ready to ship (user says "commit", "PR", "push", or approves changes). Never push to main directly; merging (and thus deploying) is the user's call.
+description: Open or update a pull request for tdlx-homepage. Use whenever work is ready to ship (user says "commit", "PR", "push", or approves changes). Never push to main directly; merging (and thus deploying) is the user's call.
 ---
 
 # Open a PR for tdlx-homepage
 
-Merging to main triggers the Deploy workflow that rsyncs straight to the live tdlx.nl server, so everything ships via PR and the user merges.
+Repo-specific additions to the global `open-pr` skill, which owns the generic flow
+(sync, rebase, validate, push, verify mergeable). Everything below is what this repo
+does differently.
 
-## Steps
+## Merging deploys
 
-1. **Sync first, always.** `git fetch origin` and check `git log --oneline HEAD..origin/main`. Other sessions and PRs land on main frequently in this repo; a branch cut hours ago is often already stale.
-2. **Branch** from `origin/main` (or rebase the existing branch onto it): `git rebase origin/main`.
-3. **Resolve conflicts with care.** Main's side is usually the newer redesign (CI pipeline, layouts). When taking a whole file from main (`git checkout --ours` during rebase), re-check that branch-specific includes survive. Known trap: `layouts/index.html` does NOT use `baseof.html`, so partials added to both (e.g. `cookieConsent.html`) must be re-added to `index.html` by hand after a whole-file resolution.
-4. **Validate** before pushing: `hugo --quiet -d <scratchpad>/hugo-build` must exit 0. For content/layout changes, grep the generated HTML for what changed (new partial markup, links, meta tags).
-5. **Push and open**: `git push -u origin <branch>` then `gh pr create` with a body listing changes and validation performed. Amended/rebased branches: `git push --force-with-lease`.
-6. **Verify the PR is actually mergeable** (the step that gets forgotten):
-   `gh pr view <n> --json mergeable,mergeStateStatus`
-   - `CONFLICTING`: go back to step 2, rebase and resolve now, not later.
-   - `MERGEABLE BLOCKED`: usually the CI build check still running; confirm with `gh pr checks <n>`.
-   - Report the final state to the user with the PR URL.
+`hugo_deploy.yml` runs on push to main and rsyncs straight to the live tdlx.nl server.
+There is no staging step, so every change ships via PR and the user merges. Say so when
+handing the PR back.
 
-## Notes
+## Validation
 
-- CI: `ci.yml` builds PRs; `hugo_deploy.yml` deploys on push to main only. Hugo version is pinned in both (keep in sync).
-- No em dashes in any user-facing text (site content, PR descriptions).
-- Update this skill when the workflow bites again: add the failure to the "known trap" list in step 3 or the states in step 6.
+`hugo --quiet -d <scratchpad>/hugo-build` must exit 0 before pushing. For content or
+layout changes, grep the generated HTML for what changed: new partial markup, links,
+meta tags.
+
+CI: `ci.yml` builds PRs, `hugo_deploy.yml` deploys on push to main. The Hugo version is
+pinned in both; keep them in sync.
+
+## Known traps
+
+- Main moves fast here (parallel sessions), so a branch cut hours ago is usually stale.
+  Fetch and rebase before every push, not just the first.
+- Conflicts: main's side is usually the newer redesign (CI pipeline, layouts). After
+  taking a whole file from main (`git checkout --ours` during a rebase), re-check that
+  branch-specific includes survived. `layouts/index.html` does NOT use `baseof.html`, so
+  a partial added to both (for example `cookieConsent.html`) has to be re-added to
+  `index.html` by hand.
+
+Update this file when the workflow bites again. Generic lessons belong in the global
+skill instead.
