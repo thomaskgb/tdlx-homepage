@@ -10,7 +10,7 @@ tech: ['Python', 'SQLite', 'MCP', 'openpyxl', 'Chart.js']
 ## What it is
 A small toolchain that keeps a half-marathon training plan honest. It pulls my runs out of Garmin, writes the actuals back into the plan workbook next to what was prescribed, and generates a dashboard that answers one question: am I actually getting fitter, or is the weather just being kind?
 
-![The generated training dashboard: key numbers, weekly volume and run frequency, easy-run heart rate against air temperature, aerobic efficiency, a heat scatter plot and a goal ladder](/images/running-coach-dashboard.png)
+![The generated training dashboard: key numbers, weekly volume and run frequency, easy-run heart rate against air temperature, aerobic efficiency and a heat scatter plot](/images/running-coach-dashboard.png)
 
 The numbers in that screenshot are deliberately scrambled. The shape of the charts is real, the values are not.
 
