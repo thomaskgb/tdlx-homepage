@@ -25,7 +25,7 @@
                 {{ range first 3 (where .Site.RegularPages "Section" "in" (slice "posts" "projects")).ByDate.Reverse }}
                 <a href="{{ .RelPermalink }}" class="post-card">
                     <h3 class="post-card-title">{{ .Title }}</h3>
-                    <p class="post-card-summary">{{ .Summary }}</p>
+                    <p class="post-card-summary">{{ .Summary | plainify | htmlUnescape | truncate 180 }}</p>
                     <time class="post-card-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
                 </a>
                 {{ end }}
