@@ -1,0 +1,122 @@
+// "Posts and resources" cards: external posts, talks and videos linked from
+// experience entries and project pages. Visual language follows .project-card.
+.resources {
+  margin: 1.2em 0 0;
+}
+
+.resources-title {
+  color: $gray;
+  font-size: $small-font-size;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.6em;
+}
+
+.resources-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 12px;
+}
+
+.resource-card {
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 150ms ease-in;
+
+  &:hover {
+    border-color: rgba(128, 128, 128, 0.6);
+  }
+
+  > a {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    height: 100%;
+    padding: 14px 16px;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+}
+
+// Beat the generic .page-content a rules (link colour, external-link arrow),
+// including their dark-theme variants.
+.page-content .resources .resource-card > a {
+  color: inherit;
+
+  &::after {
+    content: none;
+  }
+
+  &:hover,
+  &:focus {
+    color: inherit;
+  }
+
+  &:hover .resource-title,
+  &:focus .resource-title {
+    color: $text-link-blue;
+  }
+
+  &:hover .resource-cta,
+  &:focus .resource-cta {
+    text-decoration: underline;
+  }
+}
+
+// Override the generic .page-content img rule (margins, radius).
+.resources .resource-thumb {
+  display: block;
+  width: calc(100% + 32px);
+  max-width: none;
+  margin: -14px -16px 8px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+.resource-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75em;
+  color: $gray;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    flex: none;
+  }
+}
+
+// Brand colours on the source icon so the destination is obvious at a glance.
+.resource-linkedin .resource-meta svg {
+  color: #0a66c2;
+}
+
+.resource-youtube .resource-meta svg {
+  color: #e50914;
+}
+
+.resource-cta {
+  margin-top: auto;
+  padding-top: 6px;
+  font-size: 0.75em;
+  font-weight: $bold-weight;
+  color: $text-link-blue;
+}
+
+.resource-title {
+  font-weight: $bold-weight;
+  font-size: 0.95em;
+  line-height: 1.35;
+}
+
+.resource-blurb {
+  font-size: $small-font-size;
+  line-height: 1.5;
+  opacity: 0.85;
+}

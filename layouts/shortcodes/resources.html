@@ -1,0 +1,11 @@
+{{- /*
+  Renders the "Posts and resources" cards for one group defined in the page's
+  front matter, e.g. {{< resources "elia" >}} reads .Params.resources.elia.
+*/ -}}
+{{- $key := .Get 0 -}}
+{{- $groups := .Page.Params.resources -}}
+{{- with index $groups $key -}}
+{{ partial "resources.html" (dict "items" . "heading" "label") }}
+{{- else -}}
+{{ errorf "resources shortcode: no group %q in the front matter of %s" $key $.Page.File.Path }}
+{{- end -}}
