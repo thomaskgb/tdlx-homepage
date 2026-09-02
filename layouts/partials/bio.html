@@ -1,12 +1,24 @@
+{{- /* Homepage hero: avatar, role line, tagline, short bio and the two primary links. */ -}}
 {{ $avatar_img := .Site.Params.author.avatar }}
 {{ $avatar_img_alt := .Site.Params.author.name }}
 {{ $image := resources.Get $avatar_img }}
-<div class="author">
+<section class="hero" aria-label="Introduction">
     {{ with $image }}
-    {{ $image := $image.Fill "250x250 webp" }}
-    <img class="author-avatar" src="{{ $image.RelPermalink }}" alt="{{ $avatar_img_alt }}" width="{{ .Width }}"
-        height="{{ .Height }}" />
+    {{ $image := $image.Fill "300x300 webp q85" }}
+    <img class="hero-avatar" src="{{ $image.RelPermalink }}" alt="{{ $avatar_img_alt }}" width="150" height="150" />
     {{ end }}
-    <h2 class="author-name">{{ .Site.Params.author.intro }}</h2>
-    <p class="author-bio">{{ .Site.Params.author.description }}</p>
-</div>
+    <div class="hero-text">
+        {{ with .Site.Params.author.role }}
+        <p class="eyebrow hero-role">{{ . }}</p>
+        {{ end }}
+        <h1 class="hero-title">{{ .Site.Params.author.intro }}</h1>
+        <p class="hero-bio">{{ .Site.Params.author.description }}</p>
+        <div class="hero-actions">
+            <a class="btn" href="{{ "experience/" | relURL }}">Experience</a>
+            <a class="btn" href="{{ "projects/" | relURL }}">Projects</a>
+            <div class="hero-social">
+                {{- partial "socialIcons.html" site.Params.socialIcons -}}
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,196 @@
+// Shared UI tokens and primitives: surface colours, cards, buttons, tag
+// chips and eyebrow labels. Colours are CSS custom properties so one set of
+// component rules works in both themes; only the token values change.
+
+:root {
+  --ui-bg: #{$white};
+  --ui-surface: #f7f7f9;
+  --ui-surface-2: #eceef2;
+  --ui-border: rgba(107, 120, 134, 0.28);
+  --ui-border-strong: rgba(107, 120, 134, 0.6);
+  --ui-heading: #{$black};
+  --ui-text: #{$text-base-color};
+  --ui-muted: #{$gray};
+  --ui-accent: #{$text-link-blue};
+  --ui-radius: 10px;
+  --ui-shadow: 0 1px 2px rgba(13, 18, 43, 0.05);
+  --ui-shadow-hover: 0 8px 20px rgba(13, 18, 43, 0.09);
+}
+
+@mixin ui-dark-tokens {
+  --ui-bg: #{$dark-black};
+  --ui-surface: #{$dark-light};
+  --ui-surface-2: #23262f;
+  --ui-border: rgba(255, 255, 255, 0.09);
+  --ui-border-strong: rgba(255, 255, 255, 0.24);
+  --ui-heading: #{$dark-white};
+  --ui-text: #{$dark-text-base-color};
+  --ui-muted: #{$dark-gray};
+  --ui-accent: #{$dark-text-link-blue};
+  --ui-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --ui-shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.45);
+}
+
+// Same switching rules as _dark.scss: system preference unless the user chose.
+@media (prefers-color-scheme: dark) {
+  html:not(.light) {
+    @include ui-dark-tokens;
+  }
+}
+
+html.dark {
+  @include ui-dark-tokens;
+}
+
+// The dark theme styles links as `html.dark a:hover`; anything that needs to
+// override link colour must match that specificity in both themes.
+@mixin themed {
+  &,
+  html.dark &,
+  html:not(.light) & {
+    @content;
+  }
+}
+
+// Eyebrow: small uppercase label used above sections, page titles and the hero.
+.eyebrow {
+  display: inline-block;
+  margin: 0;
+  font-size: 0.74em;
+  font-weight: $bold-weight;
+  line-height: 1.6;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--ui-muted);
+}
+
+a.eyebrow-link {
+  @include themed {
+    color: var(--ui-muted);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: var(--ui-accent);
+    }
+  }
+}
+
+// Card surface shared by project cards and any future card.
+.card {
+  display: block;
+  box-sizing: border-box;
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--ui-radius);
+  box-shadow: var(--ui-shadow);
+  transition: border-color 150ms ease-in, box-shadow 150ms ease-in, transform 150ms ease-in;
+}
+
+a.card {
+  @include themed {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: inherit;
+      border-color: var(--ui-border-strong);
+      box-shadow: var(--ui-shadow-hover);
+      transform: translateY(-1px);
+    }
+  }
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+
+  &.card-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @include media-query($on-mobile) {
+    grid-template-columns: 1fr;
+
+    &.card-grid-3 {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Tech tag chips.
+.tag-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  li {
+    padding: 1px 10px;
+    font-size: 0.72em;
+    line-height: 1.7;
+    white-space: nowrap;
+    border: 1px solid var(--ui-border);
+    border-radius: 999px;
+    background: var(--ui-bg);
+    color: var(--ui-muted);
+  }
+}
+
+// Buttons (links styled as buttons). Outlined, so they read as links to
+// other pages rather than as a selected state.
+.btn {
+  @include themed {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55em 1.25em;
+    border-radius: 999px;
+    font-size: $small-font-size;
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+    border: 1px solid var(--ui-border-strong);
+    background: transparent;
+    color: var(--ui-heading);
+    transition: background-color 150ms ease-in, border-color 150ms ease-in, color 150ms ease-in;
+
+    &:hover,
+    &:focus {
+      border-color: var(--ui-accent);
+      color: var(--ui-accent);
+    }
+  }
+}
+
+// Section header row: eyebrow on the left, "All ..." link on the right.
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--ui-border);
+
+  .section-link {
+    @include themed {
+      font-size: $small-font-size;
+      color: var(--ui-muted);
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        color: var(--ui-accent);
+      }
+    }
+  }
+}
+
+// Wider page column for grids (the default .wrapper is 720px).
+.wrapper.wide {
+  max-width: $wide-size;
+}

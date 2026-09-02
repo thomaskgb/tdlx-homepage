@@ -1,0 +1,27 @@
+{{- /*
+Cover image for a project card. Uses the `cover` front matter field, or the
+first image in the page body. Raster images under /images/ are resized to a
+small webp through the assets mount; SVG diagrams are used as they are.
+*/ -}}
+{{- $cover := .Params.cover -}}
+{{- if not $cover -}}
+  {{- with findRESubmatch `<img[^>]*src="([^"]+)"` .Content 1 -}}
+    {{- $cover = index (index . 0) 1 -}}
+  {{- end -}}
+{{- end -}}
+{{- $res := "" -}}
+{{- with $cover -}}{{- $res = resources.Get (strings.TrimPrefix "/" .) -}}{{- end -}}
+{{- with $res -}}
+  {{- if eq .MediaType.SubType "svg" -}}
+<div class="project-cover project-cover-diagram"><img src="{{ .RelPermalink }}" alt="" loading="lazy"></div>
+  {{- else if lt .Width .Height -}}
+    {{- /* portrait photo: show it whole, letterboxed over a blurred copy of itself */ -}}
+    {{- $img := .Fit "800x500 webp q78" -}}
+<div class="project-cover project-cover-contain" style="--cover-url: url('{{ $img.RelPermalink }}')"><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="" loading="lazy"></div>
+  {{- else -}}
+    {{- $img := .Fill "800x500 webp q78" -}}
+<div class="project-cover"><img src="{{ $img.RelPermalink }}" width="{{ $img.Width }}" height="{{ $img.Height }}" alt="" loading="lazy"></div>
+  {{- end -}}
+{{- else -}}
+<div class="project-cover project-cover-empty" aria-hidden="true"><span>{{ substr .Title 0 1 }}</span></div>
+{{- end -}}
