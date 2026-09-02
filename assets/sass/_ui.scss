@@ -141,7 +141,8 @@ a.card {
   }
 }
 
-// Buttons (links styled as buttons).
+// Buttons (links styled as buttons). Outlined, so they read as links to
+// other pages rather than as a selected state.
 .btn {
   @include themed {
     display: inline-flex;
@@ -152,31 +153,15 @@ a.card {
     font-weight: 500;
     line-height: 1.4;
     text-decoration: none;
-    border: 1px solid var(--ui-heading);
-    background: var(--ui-heading);
-    color: var(--ui-bg);
+    border: 1px solid var(--ui-border-strong);
+    background: transparent;
+    color: var(--ui-heading);
     transition: background-color 150ms ease-in, border-color 150ms ease-in, color 150ms ease-in;
 
     &:hover,
     &:focus {
-      background: var(--ui-accent);
       border-color: var(--ui-accent);
-      color: #fff;
-    }
-  }
-
-  &.btn-secondary {
-    @include themed {
-      background: transparent;
-      border-color: var(--ui-border-strong);
-      color: var(--ui-heading);
-
-      &:hover,
-      &:focus {
-        background: transparent;
-        border-color: var(--ui-accent);
-        color: var(--ui-accent);
-      }
+      color: var(--ui-accent);
     }
   }
 }
