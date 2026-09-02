@@ -3,7 +3,7 @@ title: "Smart Home & Energy Management"
 date: 2026-07-01
 draft: false
 weight: 2
-summary: 'A Home Assistant based system that orchestrates solar, battery, EV charging, heat pump and hot water to minimise our energy bill.'
+summary: 'A Home Assistant based system that coordinates solar, battery, EV charging, heat pump and hot water to minimise our energy bill.'
 tech: ['Home Assistant', 'MQTT / Zigbee', 'eBUS', 'Docker', 'InfluxDB / Grafana']
 resources:
   - title: "Dynamic tariffs and the dishwasher"
@@ -29,4 +29,4 @@ A favourite example is the EV charge planner: it takes the kWh needed, the solar
 ![The EV charge plan card: 18.2 kWh needed, 16 kWh planned from solar and 2.2 kWh from the single cheapest grid hour, estimated cost 28 cents](/images/ev-charge-plan.png)
 
 ## Why
-It started years ago with a few smart lights and grew into the most instructive engineering project I have: real constraints, real money on the line, and a household of end users who file bug reports at breakfast. The repository is private, but I am always happy to talk through the architecture.
+It started years ago with a few smart lights and grew into the engineering project I learn most from: real constraints, real money on the line, and a household of end users who file bug reports at breakfast. The repository is private, but I am always happy to talk through the architecture.
