@@ -5,12 +5,6 @@ date: '2026-08-31'
 author: Thomas Delvaulx
 layout: experience
 resources:
-  sitemark:
-    - title: "Same conference, a few more grey hairs"
-      url: https://www.linkedin.com/feed/update/urn:li:activity:7472543535213494272/
-      source: linkedin
-      date: June 2026
-      blurb: "Back at Intersolar, eight years after my first visit. A lot has changed in solar and for me, the energy of the event has not."
   jetpack:
     - title: "That's a wrap on my mission with Jetpack.AI"
       url: https://www.linkedin.com/feed/update/urn:li:activity:7473641749320654848/
@@ -18,16 +12,6 @@ resources:
       date: June 2026
       blurb: "Diving deep into Strata, their energy analytics platform, and helping shape its positioning and go-to-market story."
   elia:
-    - title: "Back to Belgium, and on to Elia"
-      url: https://www.linkedin.com/feed/update/urn:li:activity:7209928479058919425/
-      source: linkedin
-      date: June 2024
-      blurb: "After seven years in Amsterdam we moved home, and I started in Elia's innovation department on e-mobility."
-    - title: "What do an old airport and EVs have in common?"
-      url: https://www.linkedin.com/feed/update/urn:li:activity:7237750853544128513/
-      source: linkedin
-      date: September 2024
-      blurb: "Notes from ICNC at Tempelhof in Berlin, the main European EV industry conference, held in a hangar famous for the Berlin Airlift."
     - title: "Speaking at Enlit Europe 2024"
       url: https://www.linkedin.com/feed/update/urn:li:activity:7254474336676233216/
       source: linkedin
@@ -38,11 +22,6 @@ resources:
       source: linkedin
       date: January 2025
       blurb: "Takeaways from the SRBE-KBVE seminar on megawatt charging and what electric trucks will mean for the grid."
-    - title: "Congres Laadinfra in Brussels"
-      url: https://www.linkedin.com/feed/update/urn:li:activity:7295473475886956545/
-      source: linkedin
-      date: February 2025
-      blurb: "The future of EV charging infrastructure: logistics, charging hubs and vehicle-to-grid."
     - title: "Charge, Baby, Charge"
       url: https://www.linkedin.com/feed/update/urn:li:activity:7296115661343240193/
       source: linkedin
@@ -53,23 +32,12 @@ resources:
       source: linkedin
       date: March 2025
       blurb: "An open question to my network about vehicle-to-grid efficiency that turned into a proper discussion."
-  bluecorner:
-    - title: "Starting at Blink Charging Belgium"
-      url: https://www.linkedin.com/feed/update/urn:li:activity:6940658266574102529/
-      source: linkedin
-      date: June 2022
-      blurb: "Joining the Antwerp team as a business analyst right after the Blue Corner acquisition, to support their current and future IT developments."
   eleena:
     - title: "Earth Day, and a webinar on monitoring solar panels"
       url: https://www.linkedin.com/feed/update/urn:li:activity:6791075757323030528/
       source: linkedin
       date: April 2021
       blurb: "How to monitor solar installations, and why solar power plants really matter for the climate challenge."
-    - title: "My last working day at Eleena"
-      url: https://www.linkedin.com/feed/update/urn:li:activity:6862732934382788609/
-      source: linkedin
-      date: November 2021
-      blurb: "After seven years in the Ecorus group and two years building Eleena it was time for a change, and a long trip."
   solarteam:
     - title: 'The World Solar Challenge: my talk at TEDxFlanders'
       url: https://www.youtube.com/watch?v=97kysnFqj-c
@@ -77,11 +45,6 @@ resources:
       date: March 2014
       image: /images/tedx-world-solar-challenge.jpg
       blurb: "Seventeen students, fifteen months, one solar car and 3,000 km of Australian outback."
-    - title: "Lightyear One testing, and a wave of nostalgia"
-      url: https://www.linkedin.com/feed/update/urn:li:activity:6818895620493991936/
-      source: linkedin
-      date: July 2021
-      blurb: "Lightyear's testing video brought me straight back to our own testing days with the Punch Powertrain Solar Team."
 ---
 
 tech enthusiast | optimiser | engineer
@@ -92,8 +55,6 @@ tech enthusiast | optimiser | engineer
 ## missions (TDLX)
 ### Sitemark - Senior Product Manager (2026 - now)
 The energy infrastructure world is changing fast, and the way we inspect, monitor and maintain it needs to change faster. At Sitemark I work at the intersection of product management and product marketing on their digital twin platform for solar assets, making sure it doesn't just solve problems, but solves the right ones. My focus is simple: deeply understand the market and focus on customer value. In an industry moving at this pace, the gap between a good product and a successful one is often clarity. Clarity of positioning, clarity of purpose, clarity of value. That's where I operate.
-
-{{< resources "sitemark" >}}
 
 ### Jetpack.AI - Product Advisor (2026)
 A short advisory mission on Strata, an energy management product. I helped sharpen the go-to-market strategy and product direction: mapping the competitive landscape, grounding the product in real-world requirements like ISO 50001, modelling it around concrete energy-buying use cases, and pushing the UI towards the user instead of the data model.
@@ -110,8 +71,6 @@ Blink is a US-listed EV charging company that acquired several European charging
 
 ### Blue Corner - Business Analyst / Product Owner (2022 - 2023)
 Blue Corner, a Belgian charging network operator, had just been acquired by Blink. As business analyst and interim product owner I helped the team through the transition, which naturally rolled over into the Blink mission above.
-
-{{< resources "bluecorner" >}}
 
 ### Eleena - Founder & Director (2019 - 2021)
 Eleena, a spinoff of Ecorus, gives social housing tenants and corporations in the Netherlands insight into the performance and returns of their solar installations. We grew to more than 40,000 active customers. I was responsible for the business and technical development, including our monitoring platform which we built in-house using cloud and IoT technologies. Working across so many topics at once only increased my passion for software development.

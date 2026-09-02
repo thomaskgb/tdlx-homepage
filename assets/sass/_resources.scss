@@ -60,6 +60,11 @@
   &:focus .resource-title {
     color: $text-link-blue;
   }
+
+  &:hover .resource-cta,
+  &:focus .resource-cta {
+    text-decoration: underline;
+  }
 }
 
 // Override the generic .page-content img rule (margins, radius).
@@ -81,10 +86,27 @@
   color: $gray;
 
   svg {
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     flex: none;
   }
+}
+
+// Brand colours on the source icon so the destination is obvious at a glance.
+.resource-linkedin .resource-meta svg {
+  color: #0a66c2;
+}
+
+.resource-youtube .resource-meta svg {
+  color: #e50914;
+}
+
+.resource-cta {
+  margin-top: auto;
+  padding-top: 6px;
+  font-size: 0.75em;
+  font-weight: $bold-weight;
+  color: $text-link-blue;
 }
 
 .resource-title {

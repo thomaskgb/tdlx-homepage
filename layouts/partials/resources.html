@@ -22,6 +22,7 @@
     {{- range $items }}
     {{- $source := lower (.source | default "link") -}}
     {{- $label := dict "linkedin" "LinkedIn" "youtube" "YouTube" -}}
+    {{- $cta := dict "linkedin" "Read the post on LinkedIn" "youtube" "Watch on YouTube" -}}
     <li class="resource-card resource-{{ $source }}">
       <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
         {{- with .image }}
@@ -35,6 +36,7 @@
         {{- with .blurb }}
         <span class="resource-blurb">{{ . }}</span>
         {{- end }}
+        <span class="resource-cta">{{ index $cta $source | default "Open link" }} &#8599;</span>
       </a>
     </li>
     {{- end }}
