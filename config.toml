@@ -11,6 +11,19 @@ googleAnalytics = 'G-8FHB8TCQ2D' # G-MEASUREMENT_ID
 enableEmoji = true
 
 # set markup.highlight.noClasses=false to enable code highlight
+# Mount static/images into assets too, so project cards can resize cover
+# images with Hugo's image pipeline while /images/... URLs keep working.
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "static/images"
+    target = "assets/images"
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+
 [markup]
   [markup.highlight]
     noClasses = false
@@ -49,6 +62,7 @@ enableEmoji = true
   avatar = "avatar.jpg"
   intro = "Building at the edge of energy & technology"
   name = "Thomas"
+  role = "Engineer and product lead: energy, hardware and software"
   footer = "TDLX Enterprise BV - Engineering Consultancy - BTW: BE 1010.144.439"
   description = "Hi, I am Thomas and I am glad you have found my personal website.\n Here you will find a little information about my background and experience, and some of the projects that keep me busy, both on professional missions and at home. Please reach out if you have any questions"
   goToTop = true

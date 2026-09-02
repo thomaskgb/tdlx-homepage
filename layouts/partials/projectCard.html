@@ -1,0 +1,13 @@
+{{- /* One project card: cover image, title, summary and tech tags. Context: a project page. */ -}}
+<a href="{{ .RelPermalink }}" class="card project-card">
+    {{ partial "projectCover.html" . }}
+    <div class="project-card-body">
+        <h3 class="project-title">{{ .Title }}</h3>
+        {{ with .Params.summary }}<p class="project-summary">{{ . }}</p>{{ end }}
+        {{ with .Params.tech }}
+        <ul class="tag-list">
+            {{ range . }}<li>{{ . }}</li>{{ end }}
+        </ul>
+        {{ end }}
+    </div>
+</a>

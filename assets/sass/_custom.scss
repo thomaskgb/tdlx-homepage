@@ -15,54 +15,113 @@ p.page-description {
   margin: 0 auto 2rem;
 }
 
-// Projects list
+// Project cards (projects list and homepage)
 .project-card {
-  border: 1px solid rgba(128, 128, 128, 0.3);
-  border-radius: 8px;
-  padding: 18px 22px;
-  margin: 18px 0;
-  transition: border-color 150ms ease-in;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 
-  &:hover {
-    border-color: rgba(128, 128, 128, 0.6);
-  }
+  .project-cover {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background: var(--ui-surface-2);
+    border-bottom: 1px solid var(--ui-border);
 
-  .project-title {
-    margin: 0 0 6px;
-    font-size: 1.05em;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      border-radius: 0;
+      object-fit: cover;
+    }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    &.project-cover-diagram {
+      padding: 14px 18px;
 
-      &:hover,
-      &:focus {
-        color: $text-link-blue;
+      img {
+        object-fit: contain;
+      }
+    }
+
+    &.project-cover-contain {
+      position: relative;
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: -24px;
+        background: var(--cover-url) center / cover no-repeat;
+        filter: blur(18px) saturate(0.85);
+        opacity: 0.75;
+      }
+
+      img {
+        position: relative;
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    &.project-cover-empty {
+      background-image: radial-gradient(var(--ui-border) 1px, transparent 1px);
+      background-size: 16px 16px;
+
+      span {
+        font-family: $mono-family;
+        font-size: 2.4em;
+        color: var(--ui-muted);
+        opacity: 0.55;
       }
     }
   }
 
-  .project-summary {
-    margin: 0 0 10px;
-    opacity: 0.9;
-  }
-
-  .project-tags {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  .project-card-body {
+    flex: 1;
     display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-
-    li {
-      font-size: 0.75em;
-      border: 1px solid rgba(128, 128, 128, 0.35);
-      border-radius: 999px;
-      padding: 2px 10px;
-      opacity: 0.8;
-    }
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 18px 18px;
   }
+
+  .project-title {
+    margin: 0;
+    font-size: 1.05em;
+    line-height: 1.35;
+    color: var(--ui-heading);
+    transition: color 150ms ease-in;
+  }
+
+  .project-summary {
+    margin: 0;
+    font-size: $small-font-size;
+    line-height: 1.55;
+    opacity: 0.88;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .tag-list {
+    margin-top: auto;
+    padding-top: 6px;
+  }
+
+  &:hover .project-title,
+  &:focus .project-title {
+    color: var(--ui-accent);
+  }
+}
+
+// Tag row under a project page title
+.header .header-tags {
+  margin: 14px 0 0;
 }
 
 // Cookie consent banner
