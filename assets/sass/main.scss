@@ -88,6 +88,7 @@ $on-widescreen: 1152px;
 @import "custom";
 @import "homepage";
 @import "experience";
+@import "resources";
 
 
 {{ with .Site.Params.goToTop }}

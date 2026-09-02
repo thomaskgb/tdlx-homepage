@@ -1,0 +1,43 @@
+{{- /*
+  Posts and resources: a grid of cards linking to external posts, talks and videos.
+
+  Call with a dict:
+    items    list of {title, url, source, date, blurb, image}
+             source: linkedin | youtube | anything else (label only, no icon)
+             image:  optional site-relative path shown as a 16:9 thumbnail
+    heading  "h2" for a section heading on project pages, anything else renders
+             a small uppercase label (used under experience entries)
+    title    heading text, defaults to "Posts and resources"
+*/ -}}
+{{- $items := .items -}}
+{{- $title := .title | default "Posts and resources" -}}
+{{- if $items -}}
+<section class="resources">
+  {{- if eq .heading "h2" }}
+  <h2>{{ $title }}</h2>
+  {{- else }}
+  <p class="resources-title">{{ $title }}</p>
+  {{- end }}
+  <ul class="resources-list">
+    {{- range $items }}
+    {{- $source := lower (.source | default "link") -}}
+    {{- $label := dict "linkedin" "LinkedIn" "youtube" "YouTube" -}}
+    <li class="resource-card resource-{{ $source }}">
+      <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+        {{- with .image }}
+        <img class="resource-thumb" src="{{ . }}" alt="" loading="lazy">
+        {{- end }}
+        <span class="resource-meta">
+          {{- if or (eq $source "linkedin") (eq $source "youtube") }}{{ partial "svgs/svgs.html" (dict "name" $source) }}{{ end -}}
+          <span>{{ index $label $source | default (title $source) }}{{ with .date }} · {{ . }}{{ end }}</span>
+        </span>
+        <span class="resource-title">{{ .title }}</span>
+        {{- with .blurb }}
+        <span class="resource-blurb">{{ . }}</span>
+        {{- end }}
+      </a>
+    </li>
+    {{- end }}
+  </ul>
+</section>
+{{- end -}}

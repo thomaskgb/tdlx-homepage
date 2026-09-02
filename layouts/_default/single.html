@@ -14,6 +14,9 @@
             {{ partial "toc.html" .}}
             <div class="page-content">
                 {{ .Content }}
+                {{- with .Params.resources }}
+                {{ partial "resources.html" (dict "items" . "heading" "h2") }}
+                {{- end }}
             </div>
         </article>
         {{- partial "comments.html" . -}}

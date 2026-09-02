@@ -1,10 +1,16 @@
 ---
-title: Smart Home & Energy Management
+title: "Smart Home & Energy Management"
 date: 2026-07-01
 draft: false
 weight: 2
 summary: 'A Home Assistant based system that orchestrates solar, battery, EV charging, heat pump and hot water to minimise our energy bill.'
 tech: ['Home Assistant', 'MQTT / Zigbee', 'eBUS', 'Docker', 'InfluxDB / Grafana']
+resources:
+  - title: "Dynamic tariffs and the dishwasher"
+    url: https://www.linkedin.com/feed/update/urn:li:activity:7467834682219397120/
+    source: linkedin
+    date: June 2026
+    blurb: "A few years of hourly prices in Amsterdam taught me the manual version of this project, telling my wife \"not yet, wait, okay now\"."
 ---
 
 ![The EMS overview dashboard: live energy flows between solar, battery, grid and home, EMS signals, and quick toggles for every subsystem](/images/ems-overview.png)

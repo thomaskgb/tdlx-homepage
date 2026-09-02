@@ -241,6 +241,26 @@
     }
   }
 
+  // Posts and resources cards
+  .resources-title,
+  .resource-meta {
+    color: $dark-gray;
+  }
+
+  .page-content .resources .resource-card > a {
+    color: inherit;
+
+    &:hover,
+    &:focus {
+      color: inherit;
+    }
+
+    &:hover .resource-title,
+    &:focus .resource-title {
+      color: $dark-text-link-blue;
+    }
+  }
+
   // Post Navigation
   .post-nav {
     border-color: $dark-light;
