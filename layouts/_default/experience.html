@@ -1,10 +1,63 @@
 {{- define "main" -}}
+{{- /*
+Experience page. The Markdown stays a plain list of headings and paragraphs;
+this template turns every `### Company - Role (years)` heading and the content
+under it into a timeline entry (details/summary, so long paragraphs collapse
+without JavaScript). Content between entries (hr, h2) closes one timeline and
+opens the next. Headings that do not match the pattern are rendered as they are.
+*/ -}}
 <div class="wrapper list-page">
   <header class="header">
     <h1 class="header-title center"> {{ .Title }}</h1>
   </header>
   <main class="page-content experience-page" aria-label="Content">
-    {{ .Content }}
+    {{- $chunks := split .Content "<h3" -}}
+    {{- $n := len $chunks -}}
+    {{ index $chunks 0 | safeHTML }}
+    {{- if gt $n 1 -}}
+    {{- $.Scratch.Set "tlOpen" true -}}
+    <ol class="timeline">
+    {{- range $i, $chunk := after 1 $chunks -}}
+      {{- $chunk = printf "<h3%s" $chunk -}}
+      {{- $head := findRESubmatch `^<h3 id="([^"]*)">(.*?)</h3>` $chunk 1 -}}
+      {{- $id := "" -}}{{- $text := "" -}}
+      {{- with $head }}{{ $id = index (index . 0) 1 }}{{ $text = index (index . 0) 2 }}{{ end -}}
+      {{- $rest := replaceRE `(?s)^<h3[^>]*>.*?</h3>` "" $chunk -}}
+      {{- $body := replaceRE `(?s)(<hr|<h2).*$` "" $rest -}}
+      {{- $trail := strings.TrimPrefix $body $rest -}}
+      {{- $parts := findRESubmatch `^(.+?) - (.+) \((.+)\)$` $text 1 -}}
+      <li class="tl-entry"{{ with $id }} id="{{ . }}"{{ end }}>
+        <details class="tl-details"{{ if eq $i 0 }} open{{ end }}>
+          <summary class="tl-summary">
+            {{- with $parts -}}
+            {{- $m := index . 0 -}}
+            <span class="tl-years">{{ index $m 3 | safeHTML }}</span>
+            <span class="tl-dot" aria-hidden="true"></span>
+            <span class="tl-title"><span class="tl-company">{{ index $m 1 | safeHTML }}</span><span class="tl-role">{{ index $m 2 | safeHTML }}</span></span>
+            {{- else -}}
+            <span class="tl-years"></span>
+            <span class="tl-dot" aria-hidden="true"></span>
+            <span class="tl-title"><span class="tl-company">{{ $text | safeHTML }}</span></span>
+            {{- end -}}
+            <span class="tl-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="tl-body">
+            {{ $body | safeHTML }}
+          </div>
+        </details>
+      </li>
+      {{- if $trail }}
+    </ol>
+    {{ $trail | safeHTML }}
+    {{- if lt (add $i 2) $n }}
+    <ol class="timeline">
+    {{- else }}{{ $.Scratch.Set "tlOpen" false }}{{ end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if $.Scratch.Get "tlOpen" }}
+    </ol>
+    {{- end -}}
+    {{- end -}}
   </main>
 </div>
 {{ end }}

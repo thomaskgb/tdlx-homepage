@@ -1,25 +1,216 @@
-// Experience page: inherits the site's base colors and fonts,
-// only adds structure (section rules and entry spacing).
+// Experience page: intro line, section labels and the timeline built by
+// layouts/_default/experience.html.
 .experience-page {
-  h2 {
-    border-bottom: 1px solid $light;
-    padding-bottom: 0.3em;
-    margin-top: 2.2em;
-    margin-bottom: 0.6em;
-  }
-
-  h3 {
-    margin-top: 1.6em;
-    margin-bottom: 0.2em;
-  }
-
   // intro line ("tech enthusiast | optimiser | engineer")
   > p:first-child {
-    color: $gray;
+    color: var(--ui-muted);
     font-size: $small-font-size;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     text-align: center;
     margin-bottom: 2em;
+  }
+
+  blockquote {
+    margin: 0 0 1.5em;
+  }
+
+  hr {
+    display: none;
+  }
+
+  // section labels ("missions (TDLX)", "employee")
+  h2 {
+    font-size: 0.78em;
+    font-weight: $bold-weight;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ui-muted);
+    border-bottom: 1px solid var(--ui-border);
+    padding-bottom: 0.6em;
+    margin: 2.6em 0 0.4em;
+  }
+
+  // any h3 that did not match the "Company - Role (years)" pattern
+  h3 {
+    margin-top: 1.6em;
+    margin-bottom: 0.2em;
+  }
+}
+
+.timeline {
+  --tl-years: 104px;
+  --tl-line: 14px;
+  --tl-gap: 14px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0.2em 0 0;
+  position: relative;
+
+  // the vertical line, centred on the dot column
+  &::before {
+    content: "";
+    position: absolute;
+    top: 14px;
+    bottom: 14px;
+    left: calc(var(--tl-years) + var(--tl-gap) + var(--tl-line) / 2 - 1px);
+    width: 2px;
+    background: var(--ui-border);
+  }
+
+  @include media-query($on-mobile) {
+    --tl-years: 0px;
+
+    &::before {
+      left: calc(var(--tl-line) / 2 - 1px);
+    }
+  }
+}
+
+.tl-entry {
+  padding: 0;
+  margin: 0;
+
+  &::before {
+    content: none;
+  }
+}
+
+.tl-details {
+  margin: 0;
+}
+
+.tl-summary {
+  display: grid;
+  grid-template-columns: var(--tl-years) var(--tl-line) minmax(0, 1fr) 20px;
+  column-gap: var(--tl-gap);
+  align-items: baseline;
+  padding: 0.6em 0;
+  cursor: pointer;
+  list-style: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  &:hover .tl-company,
+  &:focus-visible .tl-company {
+    color: var(--ui-accent);
+  }
+
+  &:focus-visible {
+    outline: 3px solid rgba(44, 118, 246, 0.6);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @include media-query($on-mobile) {
+    grid-template-columns: var(--tl-line) minmax(0, 1fr) 20px;
+    row-gap: 2px;
+
+    .tl-years {
+      grid-column: 2;
+      grid-row: 1;
+      text-align: left;
+      padding-top: 0;
+    }
+
+    .tl-dot {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      align-self: start;
+      margin-top: 0.5em;
+    }
+
+    .tl-title {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .tl-chevron {
+      grid-column: 3;
+      grid-row: 1 / span 2;
+    }
+  }
+}
+
+.tl-years {
+  font-size: $small-font-size;
+  color: var(--ui-muted);
+  white-space: nowrap;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.tl-dot {
+  position: relative;
+  top: -1px;
+  width: 12px;
+  height: 12px;
+  margin: 0 1px;
+  border-radius: 50%;
+  background: var(--ui-bg);
+  border: 2px solid var(--ui-border-strong);
+  box-sizing: border-box;
+  transition: background-color 150ms ease-in, border-color 150ms ease-in;
+}
+
+.tl-details[open] > .tl-summary .tl-dot {
+  background: var(--ui-heading);
+  border-color: var(--ui-heading);
+}
+
+.tl-title {
+  min-width: 0;
+}
+
+.tl-company {
+  font-weight: $bold-weight;
+  color: var(--ui-heading);
+  transition: color 150ms ease-in;
+}
+
+.tl-role {
+  color: var(--ui-text);
+  opacity: 0.9;
+
+  &::before {
+    content: "\00b7";
+    margin: 0 0.45em;
+    color: var(--ui-muted);
+  }
+}
+
+.tl-chevron {
+  align-self: center;
+  justify-self: end;
+  width: 8px;
+  height: 8px;
+  margin-right: 4px;
+  border-right: 2px solid var(--ui-muted);
+  border-bottom: 2px solid var(--ui-muted);
+  transform: rotate(45deg);
+  transition: transform 150ms ease-in;
+}
+
+.tl-details[open] > .tl-summary .tl-chevron {
+  transform: rotate(225deg);
+}
+
+.tl-body {
+  margin-left: calc(var(--tl-years) + var(--tl-gap) + var(--tl-line) + var(--tl-gap));
+  padding: 0 0 1.2em;
+
+  > p {
+    margin: 0 0 0.8em;
+  }
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  @include media-query($on-mobile) {
+    margin-left: calc(var(--tl-line) + var(--tl-gap));
   }
 }
