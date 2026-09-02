@@ -15,19 +15,29 @@
 <body data-theme="{{ $defaultColor }}" class="notransition">
     {{- partial "scriptsBodyStart.html" . -}}
     {{- partial "header.html" . -}}
-    <div class="wrapper">
+    <div class="wrapper wide">
         {{ partial "bio" . }}
     </div>
     <main aria-label="Content">
-        <section class="home-cards" aria-label="Latest posts and projects">
-            <h2 class="home-cards-title">Latest</h2>
-            <div class="home-cards-grid">
-                {{ range first 3 (where .Site.RegularPages "Section" "in" (slice "posts" "projects")).ByDate.Reverse }}
-                <a href="{{ .RelPermalink }}" class="post-card">
-                    <h3 class="post-card-title">{{ .Title }}</h3>
-                    <p class="post-card-summary">{{ .Summary | plainify | htmlUnescape | truncate 180 }}</p>
-                    <time class="post-card-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan 2006" }}</time>
-                </a>
+        <section class="home-section" aria-labelledby="home-projects-title">
+            <div class="section-head">
+                <h2 class="eyebrow" id="home-projects-title">Projects</h2>
+                <a class="section-link" href="{{ "projects/" | relURL }}">All projects</a>
+            </div>
+            <div class="card-grid card-grid-3">
+                {{ range first 3 (where .Site.RegularPages "Section" "projects").ByWeight }}
+                {{ partial "projectCard.html" . }}
+                {{ end }}
+            </div>
+        </section>
+        <section class="home-section" aria-labelledby="home-posts-title">
+            <div class="section-head">
+                <h2 class="eyebrow" id="home-posts-title">Build log</h2>
+                <a class="section-link" href="{{ "posts/" | relURL }}">All posts</a>
+            </div>
+            <div class="post-list">
+                {{ range first 4 (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
+                {{ partial "postCard" . }}
                 {{ end }}
             </div>
         </section>
