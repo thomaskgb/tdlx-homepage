@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 385" font-family="-apple-system, 'Segoe UI', Roboto, sans-serif" font-size="14" role="img" aria-label="From Slack, GitLab, Todoist and chat, through capture, into one ledger, onto the board, with a re-check loop back to the sources">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b7684"/>
+    </marker>
+    <marker id="arr-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e0635c"/>
+    </marker>
+  </defs>
+  <text x="95" y="24" text-anchor="middle" fill="#8b95a3" font-size="11" font-weight="600">WHERE IT IS SAID</text>
+  <text x="290" y="24" text-anchor="middle" fill="#8b95a3" font-size="11" font-weight="600">CAPTURE</text>
+  <text x="485" y="24" text-anchor="middle" fill="#8b95a3" font-size="11" font-weight="600">ONE LEDGER</text>
+  <text x="672" y="24" text-anchor="middle" fill="#8b95a3" font-size="11" font-weight="600">TRIAGE</text>
+  <rect x="20" y="44" width="150" height="50" rx="8" fill="none" stroke="#6b7684" stroke-width="1.5"/>
+  <text x="95.0" y="66" text-anchor="middle" fill="#8b95a3" font-weight="600" font-size="13">Slack</text>
+  <text x="95.0" y="84" text-anchor="middle" fill="#8b95a3" font-size="11">said by me, asked of me</text>
+  <rect x="20" y="106" width="150" height="50" rx="8" fill="none" stroke="#6b7684" stroke-width="1.5"/>
+  <text x="95.0" y="128" text-anchor="middle" fill="#8b95a3" font-weight="600" font-size="13">A Claude session</text>
+  <text x="95.0" y="146" text-anchor="middle" fill="#8b95a3" font-size="11">what I promise in a chat</text>
+  <rect x="20" y="168" width="150" height="50" rx="8" fill="none" stroke="#6b7684" stroke-width="1.5"/>
+  <text x="95.0" y="190" text-anchor="middle" fill="#8b95a3" font-weight="600" font-size="13">GitLab</text>
+  <text x="95.0" y="208" text-anchor="middle" fill="#8b95a3" font-size="11">reviews waiting on me</text>
+  <rect x="20" y="230" width="150" height="50" rx="8" fill="none" stroke="#6b7684" stroke-width="1.5"/>
+  <text x="95.0" y="252" text-anchor="middle" fill="#8b95a3" font-weight="600" font-size="13">Todoist quick add</text>
+  <text x="95.0" y="270" text-anchor="middle" fill="#8b95a3" font-size="11">phone, laptop, offline</text>
+  <rect x="215" y="44" width="150" height="50" rx="8" fill="none" stroke="#5b8dd9" stroke-width="1.5"/>
+  <text x="290.0" y="66" text-anchor="middle" fill="#5b8dd9" font-weight="600" font-size="13">The sweep</text>
+  <text x="290.0" y="84" text-anchor="middle" fill="#8b95a3" font-size="11">headless Claude, 4x a day</text>
+  <rect x="215" y="106" width="150" height="50" rx="8" fill="none" stroke="#5b8dd9" stroke-width="1.5"/>
+  <text x="290.0" y="128" text-anchor="middle" fill="#5b8dd9" font-weight="600" font-size="13">Direct add</text>
+  <text x="290.0" y="146" text-anchor="middle" fill="#8b95a3" font-size="11">from the chat itself</text>
+  <rect x="215" y="168" width="150" height="112" rx="8" fill="none" stroke="#4fa37a" stroke-width="1.5"/>
+  <text x="290.0" y="205" text-anchor="middle" fill="#4fa37a" font-weight="600" font-size="13">Plain scripts</text>
+  <text x="290.0" y="223" text-anchor="middle" fill="#8b95a3" font-size="11">no model needed</text>
+  <text x="290.0" y="239" text-anchor="middle" fill="#8b95a3" font-size="11">reviews, every sweep</text>
+  <text x="290.0" y="255" text-anchor="middle" fill="#8b95a3" font-size="11">Todoist, every 10 min</text>
+  <line x1="170" y1="69" x2="211" y2="69" stroke="#6b7684" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="170" y1="131" x2="211" y2="131" stroke="#6b7684" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="170" y1="193" x2="211" y2="193" stroke="#6b7684" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="170" y1="255" x2="211" y2="255" stroke="#6b7684" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="410" y="44" width="150" height="236" rx="8" fill="none" stroke="#e6b84c" stroke-width="1.5"/>
+  <text x="485.0" y="103" text-anchor="middle" fill="#e6b84c" font-weight="600" font-size="13">The ledger</text>
+  <text x="485.0" y="121" text-anchor="middle" fill="#8b95a3" font-size="11">one row per obligation</text>
+  <text x="485.0" y="137" text-anchor="middle" fill="#8b95a3" font-size="11">identity: the message</text>
+  <text x="485.0" y="153" text-anchor="middle" fill="#8b95a3" font-size="11">that created it</text>
+  <text x="485.0" y="169" text-anchor="middle" fill="#8b95a3" font-size="11">status, date, priority</text>
+  <text x="485.0" y="185" text-anchor="middle" fill="#8b95a3" font-size="11">nothing is deleted</text>
+  <text x="485.0" y="201" text-anchor="middle" fill="#8b95a3" font-size="11"></text>
+  <text x="485.0" y="217" text-anchor="middle" fill="#8b95a3" font-size="11">work: the ledger file</text>
+  <text x="485.0" y="233" text-anchor="middle" fill="#8b95a3" font-size="11">life: havoc (SQLite)</text>
+  <line x1="365" y1="69" x2="406" y2="69" stroke="#6b7684" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="365" y1="131" x2="406" y2="131" stroke="#6b7684" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="365" y1="224" x2="406" y2="224" stroke="#6b7684" stroke-width="1.5" marker-end="url(#arr)"/>
+  <rect x="605" y="44" width="135" height="112" rx="8" fill="none" stroke="#4fa37a" stroke-width="1.5"/>
+  <text x="672.5" y="73" text-anchor="middle" fill="#4fa37a" font-weight="600" font-size="13">The board</text>
+  <text x="672.5" y="91" text-anchor="middle" fill="#8b95a3" font-size="11">Inbox</text>
+  <text x="672.5" y="107" text-anchor="middle" fill="#8b95a3" font-size="11">Overdue</text>
+  <text x="672.5" y="123" text-anchor="middle" fill="#8b95a3" font-size="11">Up next, Later</text>
+  <text x="672.5" y="139" text-anchor="middle" fill="#8b95a3" font-size="11">Waiting on them</text>
+  <rect x="605" y="170" width="135" height="110" rx="8" fill="none" stroke="#6b7684" stroke-width="1.5"/>
+  <text x="672.5" y="198" text-anchor="middle" fill="#8b95a3" font-weight="600" font-size="13">Me</text>
+  <text x="672.5" y="216" text-anchor="middle" fill="#8b95a3" font-size="11">Pick up</text>
+  <text x="672.5" y="232" text-anchor="middle" fill="#8b95a3" font-size="11">Done or Won't do</text>
+  <text x="672.5" y="248" text-anchor="middle" fill="#8b95a3" font-size="11">Set a date</text>
+  <text x="672.5" y="264" text-anchor="middle" fill="#8b95a3" font-size="11">Approve a draft</text>
+  <line x1="560" y1="99" x2="601" y2="99" stroke="#6b7684" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="672" y1="156" x2="672" y2="166" stroke="#6b7684" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="605" y1="240" x2="564" y2="240" stroke="#6b7684" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="583" y="232" text-anchor="middle" fill="#8b95a3" font-size="10">writes</text>
+  <path d="M 470 280 L 470 322 L 110 322 L 110 284" fill="none" stroke="#e0635c" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr-red)"/>
+  <path d="M 80 280 L 80 350 L 500 350 L 500 284" fill="none" stroke="#e0635c" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arr-red)"/>
+  <text x="290" y="315" text-anchor="middle" fill="#e0635c" font-size="11">re-check: the thread, Slack, sent mail, calendar</text>
+  <text x="290" y="368" text-anchor="middle" fill="#e0635c" font-size="11">evidence back: done, dropped, nudged, moved on, still open</text>
+</svg>
